@@ -1,11 +1,14 @@
+# Terraform generated files
 .terraform/
 *.tfstate
 *.tfstate.*
 crash.log
 crash.*.log
-keys/
-*.pem
 
-.terraform/
-*.tfstate
-*.tfstate.*
+# Sensitive Terraform variables
+terraform.tfvars
+*.tfvars
+*.tfvars.json
+
+# SSH private keys
+keys/rohit-eks-worker
