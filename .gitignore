@@ -5,3 +5,7 @@ crash.log
 crash.*.log
 keys/
 *.pem
+
+.terraform/
+*.tfstate
+*.tfstate.*
