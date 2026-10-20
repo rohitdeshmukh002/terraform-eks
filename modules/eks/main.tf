@@ -42,7 +42,7 @@ resource "aws_eks_node_group" "main" {
   }
 
   instance_types = var.instance_types
-  capacity_type  = "ON_DEMAND"
+  capacity_type  = "SPOT"
 
   scaling_config {
     desired_size = var.desired_size
