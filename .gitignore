@@ -11,4 +11,6 @@ terraform.tfvars
 *.tfvars.json
 
 # SSH private keys
-keys/rohit-eks-worker
+rohit-eks-worker
+
+.terraform
