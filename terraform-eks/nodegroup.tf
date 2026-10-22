@@ -3,7 +3,7 @@ data "aws_iam_instance_profile" "node" {
 }
 
 resource "aws_eks_node_group" "eks-grp" {
-  cluster_name    = var.cluster_name
+  cluster_name    = aws_eks_cluster.rohit_eks.name
   node_group_name = var.node_grp
 
   node_role_arn = data.aws_iam_instance_profile.node.role_arn
