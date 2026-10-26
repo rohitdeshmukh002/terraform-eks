@@ -1,6 +1,6 @@
 resource "helm_release" "cluster_autoscaler" {
-  name       = "cluster-autoscaler"
-  namespace  = "kube-system"
+  name      = "cluster-autoscaler"
+  namespace = "kube-system"
 
   repository = "https://kubernetes.github.io/autoscaler"
   chart      = "cluster-autoscaler"
@@ -8,7 +8,7 @@ resource "helm_release" "cluster_autoscaler" {
   values = [
     yamlencode({
       autoDiscovery = {
-        clusterName = aws_eks_cluster.pathnex.name
+        clusterName = aws_eks_cluster.my_cluster.name
       }
 
       awsRegion     = "ap-south-1"

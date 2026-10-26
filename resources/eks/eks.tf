@@ -1,7 +1,7 @@
 resource "aws_eks_cluster" "my_cluster" {
-  name = "argo-cluster"
+  name     = "argo-cluster"
   role_arn = "arn:aws:iam::034971967372:role/AmazonEKSClusterRole"
-  version = "1.36"
+  version  = "1.36"
 
   upgrade_policy {
     support_type = "STANDARD"
@@ -9,13 +9,13 @@ resource "aws_eks_cluster" "my_cluster" {
 
   vpc_config {
     subnet_ids = [
-        "subnet-0a72bd2c4d45ccb3d",
-        "subnet-04f2022a8e6c79cd9",
-        "subnet-04d8c5f3617bae491"
+      "subnet-0a72bd2c4d45ccb3d",
+      "subnet-04f2022a8e6c79cd9",
+      "subnet-04d8c5f3617bae491"
     ]
 
     security_group_ids = [
-        "sg-060c79da774aadc47"
+      "sg-060c79da774aadc47"
     ]
 
     endpoint_public_access  = true
@@ -25,7 +25,7 @@ resource "aws_eks_cluster" "my_cluster" {
       "0.0.0.0/0"
     ]
   }
-    zonal_shift_config {
-        enabled = false
-    }
+  zonal_shift_config {
+    enabled = false
+  }
 }

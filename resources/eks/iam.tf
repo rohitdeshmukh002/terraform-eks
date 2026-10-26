@@ -30,13 +30,13 @@ resource "aws_iam_role_policy_attachment" "ebs_csi" {
 }
 
 resource "aws_eks_pod_identity_association" "ebs_csi" {
-  cluster_name    = aws_eks_cluster.pathnex.name
+  cluster_name    = aws_eks_cluster.my_cluster.name
   namespace       = "kube-system"
   service_account = "ebs-csi-controller-sa"
   role_arn        = aws_iam_role.ebs_csi.arn
 
   depends_on = [
-    aws_eks_cluster.pathnex,
+    aws_eks_cluster.my_cluster,
     aws_iam_role_policy_attachment.ebs_csi
   ]
 }
@@ -124,7 +124,7 @@ resource "aws_iam_role_policy_attachment" "cluster_autoscaler" {
 
 # Give the Kubernetes ServiceAccount this IAM role
 resource "aws_eks_pod_identity_association" "cluster_autoscaler" {
-  cluster_name    = aws_eks_cluster.pathnex.name
+  cluster_name    = aws_eks_cluster.my_cluster.name
   namespace       = "kube-system"
   service_account = "cluster-autoscaler"
   role_arn        = aws_iam_role.cluster_autoscaler.arn

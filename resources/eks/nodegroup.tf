@@ -1,14 +1,14 @@
 resource "aws_eks_node_group" "pathnex-NG" {
-  cluster_name    = aws_eks_cluster.pathnex.name
+  cluster_name    = aws_eks_cluster.my_cluster.name
   node_group_name = "eks-ng"
 
   node_role_arn = "arn:aws:iam::034971967372:role/AmazonEKSNodeRole"
 
   subnet_ids = [
-        "subnet-0a72bd2c4d45ccb3d",
-        "subnet-04f2022a8e6c79cd9",
-        "subnet-04d8c5f3617bae491"
-    ]
+    "subnet-0a72bd2c4d45ccb3d",
+    "subnet-04f2022a8e6c79cd9",
+    "subnet-04d8c5f3617bae491"
+  ]
 
 
   version        = "1.36"
@@ -24,14 +24,14 @@ resource "aws_eks_node_group" "pathnex-NG" {
   }
 
   tags = {
-  "k8s.io/cluster-autoscaler/enabled"          = "true"
-  "k8s.io/cluster-autoscaler/Rohit"            = "owned"
+    "k8s.io/cluster-autoscaler/enabled" = "true"
+    "k8s.io/cluster-autoscaler/Rohit"   = "owned"
   }
-  
+
   lifecycle {
-  ignore_changes = [
-    scaling_config[0].desired_size
-  ]
+    ignore_changes = [
+      scaling_config[0].desired_size
+    ]
   }
 
 
