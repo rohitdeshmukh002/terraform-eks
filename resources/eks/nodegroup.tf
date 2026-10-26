@@ -42,7 +42,7 @@ resource "aws_eks_node_group" "pathnex-NG" {
   }
 
   remote_access {
-    ec2_ssh_key = "server"
+    ec2_ssh_key = "server_key"
 
     source_security_group_ids = [
       "sg-060c79da774aadc47"
