@@ -18,15 +18,15 @@ resource "aws_eks_node_group" "pathnex-NG" {
   disk_size      = 20
 
   scaling_config {
-    desired_size = 1
-    min_size     = 1
+    desired_size = 2
+    min_size     = 2
     max_size     = 3
   }
 
-  tags = {
-    "k8s.io/cluster-autoscaler/enabled" = "true"
-    "k8s.io/cluster-autoscaler/Rohit"   = "owned"
-  }
+tags = {
+  "k8s.io/cluster-autoscaler/enabled"       = "true"
+  "k8s.io/cluster-autoscaler/argo-cluster"  = "owned"
+}
 
   lifecycle {
     ignore_changes = [
