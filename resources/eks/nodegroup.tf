@@ -23,10 +23,10 @@ resource "aws_eks_node_group" "pathnex-NG" {
     max_size     = 3
   }
 
-tags = {
-  "k8s.io/cluster-autoscaler/enabled"       = "true"
-  "k8s.io/cluster-autoscaler/argo-cluster"  = "owned"
-}
+  tags = {
+    "k8s.io/cluster-autoscaler/enabled"      = "true"
+    "k8s.io/cluster-autoscaler/argo-cluster" = "owned"
+  }
 
   lifecycle {
     ignore_changes = [

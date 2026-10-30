@@ -1,8 +1,8 @@
 resource "helm_release" "cluster_autoscaler" {
-  name       = "cluster-autoscaler"
-  namespace  = "kube-system"
-  chart = "/tmp/cluster-autoscaler-9.59.0.tgz"
-  version    = "9.59.0"
+  name      = "cluster-autoscaler"
+  namespace = "kube-system"
+  chart     = "/tmp/cluster-autoscaler-9.59.0.tgz"
+  version   = "9.59.0"
 
   values = [
     yamlencode({
